@@ -1,6 +1,7 @@
 :root {
   --deep-blue: hsl(211, 47%, 17%);
-  --light-blue: hsl(211, 59%, 35%);
+  --light-blue: hsl(211, 56%, 49%);
+  --medium-blue: hsl(211, 58%, 42%);
   --golden: hsl(33, 46%, 58%);
   --deep-blue-hover: hsla(211, 48%, 17%, 0.637);
   --font-type: 'Inter', sans-serif; }
@@ -13,9 +14,15 @@
 html {
   box-sizing: border-box;
   font-size: 75%; }
-  @media only screen and (max-width: 85.3em) {
+  @media only screen and (max-width: 75em) {
     html {
       font-size: 70%; } }
+  @media only screen and (max-width: 48em) {
+    html {
+      font-size: 65%; } }
+  @media only screen and (max-width: 40em) {
+    html {
+      font-size: 60%; } }
 
 body {
   font-family: var(--font-type);
@@ -27,8 +34,12 @@ body {
   align-items: center;
   background-color: var(--golden);
   padding: 1rem; }
+  @media only screen and (max-width: 26.25em) {
+    .header {
+      margin-top: 1rem; } }
   .header__main {
-    margin-right: 1rem; }
+    margin-right: 1rem;
+    margin-left: 1rem; }
     .header__main p {
       font-size: 2rem; }
   .header__projects, .header__contact {
@@ -50,15 +61,12 @@ body {
       text-decoration: none; }
     .header__projects a:hover:after, .header__contact a:hover:after {
       visibility: visible;
-      height: 3px; }
+      height: 5px; }
 
 .section__icons {
   width: 1.5rem;
-  height: 1.5rem; }
-  @media only screen and (max-width: 55em) {
-    .section__icons {
-      width: 2rem;
-      height: 2rem; } }
+  height: 1.5rem;
+  transition: background-color .8s ease-in-out; }
 
 .section__main {
   display: flex;
@@ -66,51 +74,131 @@ body {
   align-items: center;
   height: 100vh;
   background-color: var(--golden); }
-  @media only screen and (max-width: 55em) {
+  @media only screen and (max-width: 48em) {
     .section__main {
-      flex-direction: column;
-      height: auto; } }
-  .section__main--image {
+      flex-direction: column; } }
+  .section__main--container {
     width: 100vw;
     margin-left: 20rem;
-    align-self: center; }
-    @media only screen and (max-width: 55em) {
+    align-self: center;
+    position: relative;
+    z-index: 1; }
+    @media only screen and (max-width: 48em) {
+      .section__main--container {
+        margin-left: 0; } }
+  .section__main--image {
+    width: 80%;
+    height: auto;
+    position: relative;
+    /*&:before{
+                position: absolute;
+                content: "";
+                background-color: transparent;
+                border: 5px dotted var(--light-blue);
+                height: 10rem;
+                width: 7rem;
+                top: 30rem;
+                left: 25rem;
+                z-index: -1;
+
+                @media only screen and (max-width: $bp-largest){
+                    display: none;
+                }
+            }*/ }
+    @media only screen and (max-width: 48em) {
       .section__main--image {
-        margin-left: 16rem;
-        align-self: center; } }
+        width: 50%;
+        height: 50vh;
+        margin: 0 auto;
+        margin-top: 6rem;
+        display: block;
+        text-align: center; } }
+    @media only screen and (max-width: 26.25em) {
+      .section__main--image {
+        width: 60%; } }
+    @media only screen and (max-width: 20em) {
+      .section__main--image {
+        width: 65%; } }
+    .section__main--image:after {
+      position: absolute;
+      content: "";
+      background-color: var(--deep-blue);
+      height: 8rem;
+      width: 7rem;
+      top: -3rem;
+      left: -3.5rem;
+      z-index: -1; }
+      @media only screen and (max-width: 48em) {
+        .section__main--image:after {
+          left: 5rem; } }
+      @media only screen and (max-width: 40em) {
+        .section__main--image:after {
+          left: 0rem; } }
+      @media only screen and (max-width: 26.25em) {
+        .section__main--image:after {
+          left: -3.5rem; } }
     .section__main--image img {
-      width: 70%;
+      width: 100%;
       height: auto; }
-      @media only screen and (max-width: 55em) {
+      @media only screen and (max-width: 48em) {
         .section__main--image img {
-          height: 50%; } }
+          width: 55%;
+          margin: 0 auto; } }
+      @media only screen and (max-width: 40em) {
+        .section__main--image img {
+          width: 75%; } }
+      @media only screen and (max-width: 26.25em) {
+        .section__main--image img {
+          width: 100%;
+          height: 100%; } }
   .section__main--socials {
     margin-top: 1rem;
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content: space-around;
     align-items: center; }
+    @media only screen and (max-width: 48em) {
+      .section__main--socials {
+        width: 50%;
+        justify-content: space-around;
+        margin: 0 auto; } }
+    @media only screen and (max-width: 26.25em) {
+      .section__main--socials {
+        margin-top: 1rem; } }
+    .section__main--socials > a {
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      border-radius: 100%;
+      transition: background-color .8s ease-in-out;
+      margin-top: 5px; }
+      .section__main--socials > a:hover, .section__main--socials > a .section__icons:hover {
+        background-color: var(--light-blue);
+        fill: white; }
   .section__main--description {
-    height: 30vh;
+    height: 60vh;
     margin-right: 20rem;
     font-size: 2rem; }
-    @media only screen and (max-width: 55em) {
+    @media only screen and (max-width: 75em) {
       .section__main--description {
-        margin: 2rem 10rem;
-        font-size: 2.5rem;
-        margin-bottom: 0; } }
-    @media only screen and (max-width: 60em) {
+        font-size: 1.4rem; } }
+    @media only screen and (max-width: 64em) {
       .section__main--description {
-        font-size: 1rem; } }
+        font-size: 1.2rem; } }
+    @media only screen and (max-width: 48em) {
+      .section__main--description {
+        width: 100vw;
+        padding: 1.5rem;
+        margin: 0 auto; } }
     .section__main--description span {
       font-size: 2.5rem;
       font-weight: 500; }
-      @media only screen and (max-width: 55em) {
+      @media only screen and (max-width: 75em) {
         .section__main--description span {
-          font-size: 2rem; } }
-      @media only screen and (max-width: 60em) {
+          font-size: 2.0rem; } }
+      @media only screen and (max-width: 64em) {
         .section__main--description span {
-          font-size: 1rem; } }
+          font-size: 1.8rem; } }
 
 .section__projects h1 {
   font-size: 2.5rem;
@@ -124,15 +212,16 @@ body {
   row-gap: 1.5rem;
   justify-items: center;
   margin-top: 2rem; }
-  @media only screen and (max-width: 35em) {
+  @media only screen and (max-width: 48em) {
     .grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column; } }
-  @media only screen and (max-width: 60em) {
+      grid-gap: 1rem;
+      padding: 1rem; } }
+  @media only screen and (max-width: 40em) {
     .grid {
       grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (max-width: 26.25em) {
+    .grid {
+      grid-template-columns: repeat(1, 1fr); } }
 
 .project {
   border: 2px solid var(--deep-blue);
@@ -143,30 +232,41 @@ body {
   justify-content: space-evenly;
   border-radius: 5px;
   padding: .5rem; }
+  @media only screen and (max-width: 48em) {
+    .project {
+      width: 20rem;
+      height: 15rem; } }
+  @media only screen and (max-width: 26.25em) {
+    .project {
+      width: 100%; } }
   .project h3 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--deep-blue); }
   .project a {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 300;
-    color: var(--light-blue);
+    color: var(--deep-blue);
     text-decoration: none;
     font-variant: small-caps;
     transition: all .2s; }
+    .project a span {
+      font-size: 1.5rem; }
     .project a :hover {
       color: var(--deep-blue-hover); }
   .project p {
-    color: var(--deep-blue);
-    font-size: 1rem; }
+    color: var(--medium-blue); }
 
 .blog p {
-  font-size: 2rem; }
+  color: var(--medium-blue);
+  font-size: 1.5rem; }
 
 footer {
   margin: 2rem 0;
   text-align: center;
-  color: var(--deep-blue); }
+  color: var(--deep-blue);
+  font-size: 1.3rem; }
   footer a {
     color: var(--deep-blue);
-    text-decoration: none; }
+    text-decoration: none;
+    font-weight: 700; }

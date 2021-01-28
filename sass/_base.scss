@@ -1,7 +1,8 @@
 :root{
     //COLOURS
     --deep-blue: hsl(211, 47%, 17%);
-    --light-blue: hsl(211, 59%, 35%);
+    --light-blue: hsl(211, 56%, 49%);
+    --medium-blue: hsl(211, 58%, 42%);
     --golden: hsl(33, 46%, 58%);
     --deep-blue-hover: hsla(211, 48%, 17%, 0.637);
 
@@ -9,25 +10,13 @@
     --font-type: 'Inter', sans-serif;
 }
 
-@mixin respond($breakpoint) {
-    @if $breakpoint == phone {
-        @media only screen and (max-width: 35em) { @content };
-    }
-
-    @if $breakpoint == tab-port{
-        @media only screen and (max-width: 55em) { @content };
-    }
-
-    @if $breakpoint == tab-land {
-        @media only screen and (max-width: 60em) { @content }; //900px
-    }
-    
-    @if $breakpoint == small-screens {
-        @media only screen and (max-width: 85.3em) { @content }; //1024px
-    }
-}
-
-// $small-screens: 85.3em; //1024px
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; //1200px/16px = 75em
+$bp-large: 64em; //1024px/16px = 64em
+$bp-medium: 48em; //768px/16px = 48rem
+$bp-below-mid: 40em; //640px/16px = 40em
+$bp-small: 26.25em; //420px/16px = 26.25em
+$bp-smallest: 20em; //320px/16px = 20em
 
 *, *::before, *::after{
     margin: 0;
@@ -39,19 +28,20 @@ html{
     box-sizing: border-box;
     font-size: 75%;
 
-    // @media only screen and (max-width: $small-screens){
-    //     font-size: 70%;
-    // }
-
-    @include respond(small-screens){
+    @media only screen and (max-width: $bp-largest){
         font-size: 70%;
+    }
+
+    @media only screen and (max-width: $bp-medium){
+        font-size: 65%;
+    }
+
+    @media only screen and (max-width: $bp-below-mid){
+        font-size: 60%;
     }
 }
 
 body{
     font-family: var(--font-type);
-    background-color: var(--golden);
+    background-color: var(--golden); 
 }
-
-
-
