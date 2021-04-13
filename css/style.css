@@ -166,6 +166,9 @@ body {
         width: 50%;
         justify-content: space-around;
         margin: 0 auto; } }
+    @media only screen and (min-width: 26.25em) and (max-width: 40em) {
+      .section__main--socials {
+        margin-top: 4.5rem; } }
     @media only screen and (max-width: 26.25em) {
       .section__main--socials {
         margin-top: 4.5rem; } }
@@ -189,7 +192,7 @@ body {
     @media only screen and (max-width: 64em) {
       .section__main--description {
         font-size: 1.2rem;
-        width: 50%; } }
+        width: 70%; } }
     @media only screen and (max-width: 48em) {
       .section__main--description {
         width: 100vw;
@@ -204,6 +207,10 @@ body {
       @media only screen and (max-width: 64em) {
         .section__main--description span {
           font-size: 1.8rem; } }
+
+@media only screen and (max-width: 26.25em) {
+  .section__projects {
+    margin-top: 4.5rem; } }
 
 .section__projects h1 {
   font-size: 2.5rem;
